@@ -1,34 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
-import Header from './src/Components/Header/Header.jsx';
-import WaterProgress from './src/Components/WaterProgress/WaterProgress.jsx';
-import ActionButtons from './src/Components/ActionButtons/ActionButtons.jsx';
+import { StyleSheet, Text, View, StatusBar} from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { COLORS } from './src/Constants/colors.js';
-import { useState } from 'react';
+import Header from './src/Components/Header/Header';
+import WaterProgress from './src/Components/WaterProgress/WaterProgress';
 
 export default function App() {
-  const GOAL = 2000;
-  const [consumed, setConsumed] = useState(0);
-
-  const handleAddWater = (amount) => {
-
-  };
-
-  const handleReset = () => {
-
-  };
 
   return (
     <SafeAreaProvider>
 
       <SafeAreaView>
         <StatusBar />
-
         <View>
-          <Header />
-          <WaterProgress />
-          <ActionButtons />
+          <Header meta = {2000} />
+          <WaterProgress consumido = {2500} meta = {2000}/>
         </View>
 
       </SafeAreaView>
@@ -37,8 +21,5 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-
-});
 
 
