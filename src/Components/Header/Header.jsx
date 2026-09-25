@@ -5,7 +5,7 @@ export default function Header( {meta} ) {
     return(
         <View style = {styles.container}>
             <Text style = {styles.title}>
-                Diário de Hidratação
+                💧 Diário de Hidratação
             </Text>
             <Text style = {styles.subtitle}>
                 Meta Diária: {meta}mL
