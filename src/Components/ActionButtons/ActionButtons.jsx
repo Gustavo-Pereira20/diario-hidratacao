@@ -1,24 +1,37 @@
 import { StyleSheet, Text, View, Pressable} from 'react-native';
 import { COLORS } from '../../Constants/colors';
 
-export function ActionButtons({acrescimoAgua, aoResetar}) {
+export function ActionButtons({acrescimoAgua, redefinirAgua}) {
 
     return(
         <View style = {styles.container}>
             <Text style = {styles.label}>Adicionar consumo:</Text>
             <View style = {styles.buttonRow}>
-                <Pressable style = {styles.btn}>
-                    <Text>+200 mL</Text>
+                <Pressable style = {styles.button} onPress={() => {
+                  acrescimoAgua(100)
+                }}>
+                    <Text style = {styles.buttonText}>+100 mL</Text>
                 </Pressable>
-                <Pressable style = {styles.btn}>
-                    <Text>+350 mL</Text>
+                <Pressable style = {styles.button} onPress={() => {
+                  acrescimoAgua(200)
+                }}>
+                    <Text style = {styles.buttonText}>+200 mL</Text>
                 </Pressable>
-                <Pressable style = {styles.btn}>
-                    <Text>+500 mL</Text>
+                <Pressable style = {styles.button} onPress={() => {
+                  acrescimoAgua(350)
+                }}>
+                    <Text style = {styles.buttonText}>+350 mL</Text>
+                </Pressable>
+                <Pressable style = {styles.button} onPress={() => {
+                  acrescimoAgua(500)
+                }}>
+                    <Text style = {styles.buttonText}>+500 mL</Text>
                 </Pressable>
             </View>
-            <Pressable style = {styles.resetButton}>
-                <Text>Redefinir Dia</Text>
+            <Pressable style = {styles.resetButton} onPress={() => {
+              redefinirAgua()
+              }}>
+                <Text style = {styles.buttonText}>Redefinir Dia</Text>
             </Pressable>
         </View>
     );
@@ -47,6 +60,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 10,
     alignItems: 'center',
+    cursor: 'pointer'
   },
   buttonText: {
     color: COLORS.white,

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View} from 'react-native';
 import { COLORS } from '../../Constants/colors';
 
-export default function WaterProgress({consumido, meta}) {
+export function WaterProgress({consumido, meta}) {
     const porcentagem = () => {
         let valor = Math.round((consumido / meta ) * 100) 
         return valor + '%'
@@ -12,8 +12,8 @@ export default function WaterProgress({consumido, meta}) {
             <Text style = {styles.consumedText}>
                 {consumido} mL
             </Text>
-            <Text style = {styles.percentageText}>
-                {consumido >= meta ? 'Você atingiu 100% da Meta.' : `Você atingiu ${porcentagem()} da Meta.`}
+            <Text style = {consumido >= meta ? styles.percentageTextSuc : styles.percentageText}>
+                {consumido >= meta ? 'Parabéns, você atingiu sua meta diária' : `Você atingiu ${porcentagem()} da Meta.`}
             </Text>
             <View style = {styles.progressBarBackground}>
                 <View style = {[styles.progressBarFill, {width: porcentagem()}]} />
@@ -46,6 +46,11 @@ const styles = StyleSheet.create({
   percentageText: {
     fontSize: 14,
     color: COLORS.textMuted,
+    marginBottom: 16,
+  },
+  percentageTextSuc: {
+    fontSize: 14,
+    color: 'green',
     marginBottom: 16,
   },
   progressBarBackground: {
