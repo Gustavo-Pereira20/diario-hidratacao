@@ -6,6 +6,7 @@ import ActionButtons from './src/Components/ActionButtons/ActionButtons';
 
 export default function App() {
 
+  
   return (
     <SafeAreaProvider>
 
@@ -22,6 +23,18 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.background,
+  },
+  content: {
+    flex: 1,
+    padding: 24,
+    alignItems: 'center',
+  },
+});
 
 
 

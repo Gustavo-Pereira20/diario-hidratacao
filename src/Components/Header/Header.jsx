@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View} from 'react-native';
 import { COLORS } from '../../Constants/colors';
 
-export default function Header( {meta} ) {
+export function Header( {meta} ) {
     return(
         <View style = {styles.container}>
             <Text style = {styles.title}>
