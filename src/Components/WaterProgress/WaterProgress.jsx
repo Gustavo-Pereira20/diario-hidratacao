@@ -3,7 +3,7 @@ import { COLORS } from '../../Constants/colors';
 
 export function WaterProgress({consumido, meta}) {
     const porcentagem = () => {
-        let valor = Math.round((consumido / meta ) * 100) 
+        let valor = Math.min(Math.round((consumido / meta ) * 100), 100)
         return valor + '%'
     }
 
@@ -12,8 +12,8 @@ export function WaterProgress({consumido, meta}) {
             <Text style = {styles.consumedText}>
                 {consumido} mL
             </Text>
-            <Text style = {consumido >= meta ? styles.percentageTextSuc : styles.percentageText}>
-                {consumido >= meta ? 'Parabéns, você atingiu sua meta diária' : `Você atingiu ${porcentagem()} da Meta.`}
+            <Text style = {styles.percentageText}>
+                Você atingiu {porcentagem()} da Meta.
             </Text>
             <View style = {styles.progressBarBackground}>
                 <View style = {[styles.progressBarFill, {width: porcentagem()}]} />
@@ -21,8 +21,6 @@ export function WaterProgress({consumido, meta}) {
         </View>  
     );
 }
-
-
 
 const styles = StyleSheet.create({
    card: {

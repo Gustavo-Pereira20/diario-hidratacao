@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { COLORS } from './src/Constants/colors.js';
 import { MetaDiaria } from './src/Components/MetaDiaria/MetaDiaria.jsx';
 import { DicaSaude } from './src/Components/DicaSaude/DicaSaude.jsx';
+import { Mensagem } from './src/Components/Mensagem/Mensagem.jsx';
 
 export default function App() {
   const [meta, setMeta] = useState(2000)
@@ -36,6 +37,7 @@ export default function App() {
           <Header meta = {meta}/>
           <MetaDiaria meta = {meta} funcao={mudarMeta}/>
           <WaterProgress consumido = {consumido} meta = {meta}/>
+          <Mensagem consumido = {consumido} meta = {meta}/>
           <ActionButtons acrescimoAgua = {addAgua} redefinirAgua = {redefinirAgua}/>
           <DicaSaude/>
         </View>
